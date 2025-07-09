@@ -1,0 +1,976 @@
+/* Applique les mêmes règles à tous les éléments */
+* {
+    box-sizing: border-box; /* Inclut les bordures et les marges dans les dimensions des éléments */
+    max-width: 100%; /* Empêche les éléments de dépasser la largeur de leur parent */
+
+}
+
+/* Styles globaux du corps de la page */
+body {
+    font-family:
+        SF Pro Text,       /* Police principale */
+        SF Pro Icons,      /* Police d'icônes si utilisée */
+        Helvetica Neue,    /* Police secondaire */
+        Helvetica,         /* Alternative */
+        Arial,             /* Alternative */
+        sans-serif;        /* Police générique en dernier recours */
+    font-weight: 500;     /* Définit un poids de police moyen */
+    margin: 0;            /* Retire la marge par défaut du body */
+    padding: 0;           /* Retire le padding par défaut du body */
+    background-color: #f5f5f7; /* Définit la couleur de fond claire */
+    color: #1d1d1f;       /* Définit la couleur du texte */
+    overflow-x: hidden;   /* Empêche le défilement horizontal */
+}
+
+/* Applique des règles à la fois à html et body */
+html, body {
+    overflow-x: hidden;   /* Empêche le défilement horizontal */
+    margin: 0;            /* Retire la marge par défaut */
+    padding: 0;           /* Retire le padding par défaut */
+    width: 100%;          /* Définit la largeur à 100% pour éviter un défilement */
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #f5f5f7; /* Même couleur de fond que pour le body */
+    height: 44px;               /* Hauteur de l'en-tête */
+    display: flex;              /* Utilise le modèle de boîte flexible */
+    align-items: center;        /* Aligne verticalement le contenu */
+    justify-content: center;    /* Centre le contenu horizontalement */
+    width: 100%;                /* S'assure que l'en-tête occupe toute la largeur */
+    top: 0;                     /* Positionne l'en-tête en haut de la page */
+    left: 0;                    /* Positionne l'en-tête sur le côté gauche */
+    z-index: 1000;              /* Définit la superposition de l'en-tête pour qu'il soit au-dessus des autres éléments */
+}
+
+/* Barre de navigation */
+nav {
+    width: 100%;                    /* La barre de navigation occupe toute la largeur */
+    max-width: 1024px;              /* La largeur maximum est de 1024px */
+    display: flex;                  /* Utilise le modèle de boîte flexible */
+    justify-content: center;        /* Centre horizontalement les éléments */
+    align-items: center;            /* Centre verticalement les éléments */
+    padding: 10px 20px;             /* Ajoute du padding autour de la navigation */
+    position: relative;             /* Permet un positionnement relatif pour les éléments enfants */
+
+}
+
+
+
+/* Correction du menu */
+.nav-menu {
+    display: flex;                  /* Affiche les éléments du menu horizontalement */
+    gap: 30px;                      /* Espace entre chaque élément */
+    list-style: none;               /* Supprime les puces de la liste */
+    padding: 0;                     /* Retire le padding */
+    margin: 0;                      /* Retire la marge */
+}
+
+.nav-menu a {
+    text-decoration: none;  /* Supprime le soulignement */
+    color: black;           /* Met le texte en noir */
+}
+
+/* Partie gauche (logo) */
+.nav-left {
+    display: flex;                  /* Utilise un modèle de boîte flexible pour le logo */
+    align-items: center;            /* Aligne le logo verticalement */
+    margin-right: 30px;             /* Espace à droite du logo */
+}
+
+.nav-left .logo img {
+    width: 45px;                    /* Définir la taille du logo */
+}
+
+/* Partie droite (recherche, panier, menu burger) */
+.nav-right {
+    display: flex;                  /* Utilise un modèle de boîte flexible pour la partie droite */
+    align-items: center;            /* Aligne les éléments verticalement */
+    gap: 15px;                      /* Espace entre chaque élément */
+    margin-left: 30px;              /* Espace à gauche */
+}
+
+.nav-right i {
+    font-size: 14px;                /* Taille des icônes */
+    cursor: pointer;               /* Le curseur change pour indiquer qu'il est cliquable */
+}
+
+/* Ajustement de l'alignement du menu burger */
+.menu-btn {
+    display: none;                  /* Masque le bouton par défaut */
+    background: none;               /* Enlève le fond */
+    border: none;                   /* Enlève la bordure */
+    font-size: 24px;                /* Taille de la police du bouton */
+    cursor: pointer;               /* Le curseur devient une main pour indiquer qu'il est cliquable */
+    color: #1d1d1f;                 /* Couleur du texte du bouton */
+}
+
+/* Adaptation mobile */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: none;               /* Masque le menu sur les petits écrans */
+    }
+
+    .menu-btn {
+        display: block;              /* Affiche le bouton menu burger */
+    }
+
+    .nav-left {
+        margin-right: auto;          /* Permet au logo de se positionner à gauche */
+    }
+
+    .nav-right {
+        margin-left: auto;           /* Permet aux éléments à droite du logo de se positionner à droite */
+    }
+}
+
+/* Menu mobile */
+.mobile-menu {
+    display: none;                  /* Masque le menu mobile par défaut */
+    position: fixed;                /* Positionne le menu en position fixe */
+    top: 0;
+    left: 0;
+    width: 100%;                    /* Le menu occupe toute la largeur */
+    height: 100%;                   /* Le menu occupe toute la hauteur */
+    background-color: white;        /* Fond blanc pour le menu mobile */
+    z-index: 1000;                  /* Assure que le menu est au-dessus des autres éléments */
+    padding: 60px 20px;             /* Ajoute du padding autour du contenu du menu */
+    overflow-y: auto;               /* Permet le défilement vertical si le menu est trop long */
+}
+
+/* Style des liens du menu */
+.mobile-menu ul {
+    list-style: none;               /* Supprime les puces de la liste */
+    padding: 0;                     /* Retire le padding */
+    margin: 0;                      /* Retire la marge */
+}
+
+.mobile-menu ul li {
+    padding: 10px 20px;             /* Ajoute du padding autour de chaque élément */
+    font-size: 28px;                /* Taille de la police pour le texte des liens */
+    font-weight: bold;              /* Texte en gras */
+    color: black;                   /* Couleur du texte */
+    cursor: pointer;               /* Le curseur devient une main pour indiquer qu'il est cliquable */
+    text-align: start;              /* Aligne le texte à gauche */
+}
+
+/* Ajout d'un effet au survol */
+.mobile-menu ul li:hover {
+    color: #3a3a3a;                 /* Change la couleur du texte au survol */
+}
+
+/* Afficher le menu avec la classe active */
+.menu-open .overlay {
+    display: block;                 /* Affiche l'overlay */
+}
+
+.menu-open .mobile-menu {
+    display: block;                 /* Affiche le menu mobile */
+    animation: fadeIn 0.3s ease-in-out; /* Ajoute une animation de fade-in lors de l'apparition */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;                 /* Commence avec une opacité nulle */
+        transform: translateY(-20px); /* Positionne l'élément plus haut */
+    }
+    to {
+        opacity: 1;                 /* Fin avec une opacité de 1 (visible) */
+        transform: translateY(0);   /* Positionne l'élément normalement */
+    }
+}
+
+.close-menu {
+    background-color: transparent; /* Fond transparent */
+    width: 50%;                     /* Largeur du bouton */
+    height: 70%;                    /* Hauteur du bouton */
+    float: right;                   /* Positionne le bouton à droite */
+    border: none;                   /* Enlève la bordure */
+}
+
+/* ----- OVERLAY DE RECHERCHE ----- */
+.search-overlay {
+    position: fixed;                /* Position fixe pour l'overlay de recherche */
+    width: 100%;                    /* Couvre toute la largeur de l'écran */
+    height: 45vh;                   /* Hauteur à 45% de la hauteur de la fenêtre */
+    background: #f5f5f7;            /* Fond clair */
+    display: none;                  /* Masqué par défaut */
+    flex-direction: column;         /* Arrange les éléments en colonne */
+    padding: 35px 22%;              /* Padding autour du contenu */
+    z-index: 999;                   /* Assure que l'overlay est au-dessus des autres éléments */
+    border-bottom: 2px solid #ddd;  /* Bordure sous l'overlay */
+    animation: slideDown 0.4s ease-out; /* Animation lors de l'apparition */
+}
+
+/* ----- CHAMP DE RECHERCHE ----- */
+.search-container {
+    display: flex;                  /* Utilise le modèle de boîte flexible */
+    width: 60%;                     /* Largeur de l'élément de recherche */
+    align-items: center;            /* Aligne verticalement le champ de recherche */
+}
+
+.search-input {
+    font-size: 20px;                /* Taille de la police */
+    border: none;                   /* Enlève la bordure */
+    outline: none;                  /* Enlève l'outline (bordure de focus) */
+    background-color: #f5f5f7;      /* Fond clair */
+    padding: 15px 20px;             /* Padding autour du champ de recherche */
+    border-radius: 8px;             /* Coins arrondis */
+    width: 80%;                     /* Largeur du champ de recherche */
+}
+
+/* ----- LIENS RAPIDES ----- */
+.quick-links {
+    list-style: none;               /* Supprime les puces de la liste */
+    width: 110%;                    /* Légèrement plus large que la largeur parent */
+    padding: 5px 0;                 /* Ajoute du padding autour des liens */
+}
+
+.quick-links li a {
+    display: block;                 /* Les liens prennent toute la largeur disponible */
+    padding: 3px 0px;               /* Ajoute du padding autour des liens */
+    border-radius: 5px;             /* Coins arrondis pour les liens */
+    transition: background 0.3s;     /* Transition douce pour le changement de fond */
+    text-decoration: none;          /* Enlève le soulignement des liens */
+    color: black;                   /* Couleur du texte des liens */
+    font-size: 13px;                /* Taille de la police des liens */
+}
+
+.quick-links p {
+    font-size: 15px;                /* Taille de la police pour les paragraphes */
+}
+
+.quick-links li a:hover {
+    background: #ddd;               /* Change le fond au survol */
+}
+
+/* ======= VERSION RESPONSIVE ======= */
+
+/* Styles pour les écrans plus petits */
+@media screen and (max-width: 1024px) {
+    .search-overlay {
+        padding: 20px 5%;            /* Moins de padding */
+        height: 10vh;                /* Réduit la hauteur */
+    }
+
+    .search-container {
+        width: 80%;                  /* Augmente la largeur du champ de recherche */
+        max-width: 500px;            /* Limite la largeur à 500px */
+    }
+
+    .search-input {
+        font-size: 20px;             /* Taille de la police ajustée */
+        padding: 12px;               /* Padding ajusté */
+    }
+
+    .quick-links li a {
+        padding: 8px 12px;           /* Augmente l'espace autour des liens */
+    }
+}
+
+/* Styles pour les petits écrans (tablettes) */
+@media screen and (max-width: 768px) {
+    .search-overlay {
+        padding: 30px 5%;            /* Plus de padding */
+        height: 55vh;                /* Augmente la hauteur */
+    }
+
+    .search-container {
+        width: 100%;                 /* La largeur est maintenant de 100% */
+    }
+
+    .search-input {
+        font-size: 18px;             /* Taille de la police ajustée */
+        padding: 10px;               /* Padding ajusté */
+    }
+
+    .quick-links {
+        padding-top: 10px;           /* Ajoute un peu d'espace au-dessus des liens */
+    }
+
+    .quick-links li a {
+        padding: 6px 10px;           /* Ajuste l'espace autour des liens */
+        font-size: 14px;             /* Taille de la police ajustée */
+    }
+}
+
+/* Styles pour les très petits écrans (mobiles) */
+@media screen and (max-width: 480px) {
+    .search-overlay {
+        height: 35vh;                /* Réduit la hauteur de l'overlay */
+    }
+
+    .search-container {
+        width: 100%;                 /* La largeur est maintenant de 100% */
+    }
+
+    .search-input {
+        font-size: 16px;             /* Réduit la taille de la police */
+        padding: 8px;                /* Réduit le padding */
+    }
+
+    .quick-links {
+        padding-top: 5px;            /* Ajuste l'espace au-dessus des liens */
+    }
+
+    .quick-links li a {
+        padding: 5px 8px;            /* Réduit l'espace autour des liens */
+        font-size: 12px;             /* Réduit la taille de la police */
+    }
+}
+
+.no-scroll {
+    overflow: hidden;               /* Empêche le défilement de la page */
+    height: 100vh;                  /* La hauteur est de 100% de la fenêtre */
+}
+
+/* ----- BOUTON FERMETURE ----- */
+.close-search {
+    position: absolute;             /* Positionne le bouton de fermeture en absolu */
+    top: 20px;                       /* Positionne le bouton en haut */
+    right: 30px;                     /* Positionne le bouton à droite */
+    background: none;                /* Aucun fond pour le bouton */
+    border: none;                    /* Enlève la bordure */
+    font-size: 24px;                 /* Taille de la police */
+    cursor: pointer;                /* Le curseur devient une main pour indiquer qu'il est cliquable */
+}
+
+/* ----- FLU BLUR EN BAS ----- */
+body.blurred::after {
+    content: "";                     /* Crée un élément après le body */
+    position: fixed;                 /* Positionne l'élément en position fixe */
+    top: 30vh;                       /* Positionne l'élément après la moitié de l'écran */
+    left: 0;
+    width: 100%;                     /* Couvre toute la largeur */
+    height: 50vh;                    /* Couvre la moitié inférieure de l'écran */
+    backdrop-filter: blur(10px);     /* Applique un effet de flou */
+    z-index: 998;                    /* Positionne cet élément en dessous du menu */
+    pointer-events: none;            /* Désactive l'interaction avec cet élément */
+}
+
+/* Bande blanche sous le menu */
+.announcement {
+    background-color: white;        /* Fond blanc */
+    text-align: center;             /* Centre le texte */
+    padding: 20px 0;                /* Padding vertical autour du texte */
+    font-size: 14px;                /* Taille de la police */
+    color: #1d1d1f;                 /* Couleur du texte */
+}
+
+
+/* Titre de la section accueil */
+.titre-accueil {
+    text-align: left; /* Aligne le titre à gauche */
+    margin-left: 20px; /* Ajoute une marge à gauche */
+}
+
+/* Conteneur principal avec un max-width et du padding */
+.container {
+    max-width: 1300px; /* Largeur maximale de 1300px */
+    margin: 0 auto; /* Centré horizontalement */
+    padding: 50px 1px; /* Espace intérieur (50px en haut/bas et 1px à gauche/droite) */
+}
+
+/* Style du titre principal dans la section accueil */
+.titre-accueil h1 {
+    color: #6e6e73; /* Couleur du texte */
+    font-size: 46px; /* Taille du texte */
+    font-weight: 600; /* Poids du texte */
+}
+
+/* Style du texte en span dans la section accueil */
+.titre-accueil span {
+    color: black; /* Couleur du texte dans le span */
+}
+
+/* Section d'aide avec alignement et positionnement */
+.help {
+    justify-self: end; /* Aligne l'élément à droite */
+    position: relative;
+    top: -100px; /* Monte l'élément de 100px */
+}
+
+/* Items d'aide avec espacement entre les éléments */
+.help-item {
+    display: flex; /* Affiche les éléments en ligne */
+    gap: 15px; /* Espace entre chaque item */
+}
+
+/* Style des images dans la section d'aide */
+.help img {
+    width: 40px; /* Largeur des images */
+    height: auto; /* Hauteur automatique pour garder les proportions */
+}
+
+/* Style du texte dans la section d'aide */
+.help p {
+    margin: 0; /* Supprime la marge */
+    font-size: 14px; /* Taille du texte */
+    color: #1d1d1f; /* Couleur du texte */
+}
+
+/* Styles du carrousel (diaporama) */
+.carousel {
+    position: relative; /* Positionnement relatif pour les éléments internes */
+    width: 100%; /* Largeur du carrousel à 100% */
+    overflow: hidden; /* Cache les éléments qui dépassent */
+    display: flex; /* Affiche les éléments du carrousel en ligne */
+    align-items: center; /* Aligne verticalement les éléments */
+}
+
+/* Conteneur de la piste du carrousel */
+.carousel-track-container {
+    width: 100%; /* Largeur du conteneur à 100% */
+    overflow: hidden; /* Cache les éléments qui dépassent */
+}
+
+/* Piste du carrousel avec transition pour les mouvements */
+.carousel-track {
+    display: flex; /* Affiche les éléments du carrousel en ligne */
+    gap: 5px; /* Espace entre les éléments */
+    transition: transform 0.5s ease-in-out; /* Effet de transition pour le mouvement */
+    will-change: transform; /* Prépare le navigateur pour un changement de transformation */
+}
+
+/* Style des éléments (produits) du carrousel */
+.product {
+    flex: 0 0 200px; /* Taille fixe pour chaque produit */
+    display: flex; /* Affiche les éléments en colonne */
+    flex-direction: column; /* Colonne pour organiser les éléments */
+    align-items: center; /* Centre les éléments horizontalement */
+}
+
+/* Style des images des produits */
+.product img {
+    width: 110px; /* Largeur de l'image */
+    height: 120px; /* Hauteur de l'image */
+    object-fit: cover; /* Couvre l'espace sans déformation */
+}
+
+/* Style des descriptions des produits */
+.product p {
+    text-align: center; /* Centrer le texte */
+    font-size: 16px; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    color: #1d1d1f; /* Couleur du texte */
+}
+
+/* Style des boutons du carrousel */
+.carousel-btn {
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    font-size: 28px; /* Taille de la police des icônes */
+    cursor: pointer; /* Curseur en forme de main */
+    padding: 15px; /* Espacement interne */
+    position: absolute; /* Positionnement absolu */
+    top: 50%; /* Centré verticalement */
+    transform: translateY(-50%); /* Ajuste l'élément pour un vrai centrage vertical */
+    border-radius: 50%; /* Rond */
+    width: 50px; /* Largeur du bouton */
+    height: 50px; /* Hauteur du bouton */
+    display: flex; /* Utilise flexbox */
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre le contenu horizontalement */
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Animations */
+    opacity: 0.8; /* Opacité légèrement transparente */
+}
+
+/* Positionnement des boutons précédents et suivants */
+#prevBtn {
+    left: 10px; /* Décalage à gauche */
+}
+
+#nextBtn {
+    right: 10px; /* Décalage à droite */
+}
+
+/* Effet au survol des boutons */
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Fond clair au survol */
+    color: black; /* Changement de couleur de texte */
+    opacity: 1; /* Opacité à 100% */
+    transform: translateY(-50%) scale(1.1); /* Agrandissement au survol */
+}
+
+/* Effet au clic sur les boutons */
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95); /* Rétrécissement au clic */
+}
+
+/* Icônes des flèches dans les boutons */
+.carousel-btn i {
+    font-size: 24px; /* Taille des icônes */
+}
+
+/* Section responsive pour différentes tailles d'écran */
+@media screen and (max-width: 1024px) {
+    /* Centre le titre sur tablette */
+    .titre {
+        position: relative;
+        left: 0;
+        text-align: center; /* Centrer le texte */
+    }
+
+    /* Réorganise la section d'aide pour les tablettes */
+    .help {
+        position: relative;
+        right: 0;
+        top: 10px;
+        display: flex;
+        flex-direction: column; /* Organise les éléments en colonne */
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .help-item {
+        flex-direction: column; /* Empile les éléments */
+        text-align: center; /* Centrer les éléments */
+        max-width: 90%; /* Limite la largeur */
+    }
+
+    /* Ajuste le carrousel sur tablette */
+    .carousel {
+        padding-top: 100px;
+    }
+
+    .help img {
+        width: 35px; /* Réduit la taille des images */
+        float: left; /* Permet à l'image de flotter à gauche */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Ajuste la taille du titre pour les petits écrans */
+    .titre h1 {
+        font-size: 45px;
+    }
+
+    /* Réorganise la section d'aide sur mobile */
+    .help {
+        top: 55px;
+    }
+
+    .carousel {
+        padding-top: 100px;
+    }
+
+    .help-item {
+        flex-direction: row; /* Réorganise les éléments en ligne */
+        align-items: flex-start; /* Aligne les éléments en haut */
+    }
+
+    .product {
+        flex: 0 0 160px; /* Réduit la taille des produits */
+    }
+
+    .product img {
+        width: 90px; /* Réduit la taille des images */
+        height: 100px; /* Réduit la hauteur des images */
+    }
+
+    /* Réduit la taille des boutons de navigation */
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Réduit encore la taille du titre pour les très petits écrans */
+    .titre h1 {
+        font-size: 27px;
+    }
+
+    .help {
+        top: 60px;
+    }
+
+    .help-item {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    /* Réduit encore plus la taille des produits */
+    .product {
+        flex: 0 0 130px;
+    }
+
+    .product img {
+        width: 80px; /* Plus petites images */
+        height: 90px; /* Plus petites images */
+    }
+}
+
+
+/* Conteneur des produits avec espacement entre les éléments */
+.produits_container {
+    gap: 20px; /* Espace entre chaque élément à l'intérieur du conteneur */
+    max-width: 1300px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrage horizontal du conteneur */
+    padding-left: 20px; /* Marge interne à gauche */
+}
+
+/* Ligne des produits avec un espacement entre eux */
+.produits-row {
+    display: flex; /* Utilisation de flexbox pour aligner les éléments en ligne */
+    gap: 15px; /* Espace entre les produits */
+}
+
+/* Titre de la section Nouveautés */
+.nouveautes h2 {
+    font-size: 27px; /* Taille de la police pour le titre */
+}
+
+/* Couleur du texte des éléments span dans la section Nouveautés */
+.nouveautes span {
+    color: #6e6e73; /* Gris clair pour les éléments span */
+}
+
+/* Style des cartes de produits */
+.produit {
+    width: 380px; /* Largeur de chaque carte de produit */
+    height: 460px; /* Hauteur de chaque carte de produit */
+    border-radius: 12px; /* Coins arrondis de 12px */
+    background-size: cover; /* Le fond couvre toute la zone de la carte */
+    padding: 20px; /* Espace intérieur pour le contenu de la carte */
+    transition: /* Transition pour des effets lisses au survol */
+        transform 0.3s ease-in-out, /* Animation de translation */
+        box-shadow 0.3s ease-in-out; /* Animation d'ombre */
+}
+
+/* Effet au survol des cartes de produits */
+.produit:hover {
+    transform: translateY(-10px); /* Déplacement de la carte vers le haut */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre portée au survol */
+}
+
+/* Alignement des produits à gauche dans leurs conteneurs */
+.produit {
+    justify-content: flex-start; /* Aligne les éléments vers le début (gauche) */
+}
+
+/* Titre du produit avec espacement et taille définie */
+.produit h3 {
+    font-size: 26px; /* Taille du titre */
+    margin-bottom: 5px; /* Marge sous le titre */
+}
+
+/* Suppression de la marge en haut du texte dans la carte produit */
+.produit p {
+    margin-top: 0; /* Pas de marge en haut */
+}
+
+/* Style spécifique pour le produit "iphone16pro" */
+.iphone16pro {
+    color: white; /* Texte en blanc */
+}
+
+/* Définition du texte avec un dégradé pour la classe "gradient" */
+.gradient {
+    background: linear-gradient(90deg, #66c2ef, #e52e71); /* Dégradé de bleu à rose */
+    -webkit-background-clip: text; /* Applique le fond au texte sur les navigateurs basés sur Webkit */
+    background-clip: text; /* Applique le fond au texte */
+    color: transparent; /* Rend le texte transparent */
+    font-weight: bold; /* Texte en gras */
+    font-size: 19px; /* Taille du texte */
+}
+
+/* Définition des images de fond pour chaque produit spécifique */
+.macbook {
+    background-image: url("../images/ordiPres.jpg"); /* Image pour le MacBook */
+}
+.ipad {
+    background-image: url("../images/ipadPres.jpg"); /* Image pour l'iPad */
+}
+.iphone16pro {
+    background-image: url("../images/16ProPres.jpg"); /* Image pour l'iPhone 16 Pro */
+}
+.iphone16e {
+    background-image: url("../images/16ePres.jpg"); /* Image pour l'iPhone 16e */
+}
+
+/* Responsive : Adapte la disposition des produits sur les écrans plus petits */
+@media (max-width: 900px) {
+    .produits-row {
+        flex-direction: column; /* Organise les produits en colonne sur petits écrans */
+        align-items: center; /* Centre les éléments horizontalement */
+    }
+}
+
+
+/* Conteneur des exceptions avec espacement et largeur maximale */
+.exceptions_container {
+    gap: 20px; /* Espacement entre les éléments à l'intérieur */
+    max-width: 1300px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrage horizontal du conteneur */
+    padding-left: 20px; /* Marge interne à gauche */
+}
+
+/* Disposition des éléments dans une ligne avec un espacement entre eux */
+.exceptions-row {
+    display: flex; /* Utilisation de flexbox pour organiser les éléments en ligne */
+    gap: 15px; /* Espacement entre les exceptions */
+}
+
+/* Style des éléments d'exception */
+.exceptions {
+    width: 320px; /* Largeur des cartes d'exception */
+    height: 220px; /* Hauteur des cartes d'exception */
+    border-radius: 12px; /* Coins arrondis de 12px */
+    padding: 20px; /* Espacement interne */
+    background-color: white; /* Fond blanc */
+    transition: /* Effets de transition pour des interactions fluides */
+        transform 0.3s ease-in-out, /* Animation de déplacement */
+        box-shadow 0.3s ease-in-out; /* Animation de l'ombre */
+}
+
+/* Effet au survol des cartes d'exception */
+.exceptions:hover {
+    transform: translateY(-10px); /* Déplacement de la carte vers le haut */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre portée au survol */
+}
+
+/* Alignement et espacement du contenu dans chaque carte d'exception */
+.exceptions {
+    text-align: center; /* Centre le texte dans la carte */
+    padding-top: 25px; /* Marge en haut pour l'espacement du texte */
+}
+
+/* Style du texte dans les cartes d'exception */
+.exceptions p {
+    font-size: 25px; /* Taille du texte */
+    font-weight: 600; /* Texte en gras */
+}
+
+/* Disposition flexible pour les colonnes d'exception */
+.col {
+    flex: 1 1 300px; /* Taille flexible qui s'adapte à l'écran */
+    display: flex; /* Utilisation de flexbox */
+    justify-content: center; /* Centre le contenu horizontalement */
+}
+
+/* Icônes dans les exceptions */
+.exceptions i {
+    font-size: 40px; /* Taille des icônes */
+    justify-content: flex-start; /* Aligne les icônes à gauche */
+}
+
+/* Couleurs spécifiques pour les différents éléments */
+.span2 {
+    color: #e63946; /* Rouge */
+}
+
+.span3 {
+    color: #3cac61; /* Vert */
+}
+
+.span4 {
+    color: #a638b6; /* Violet */
+}
+
+/* Responsive Design */
+
+/* Tablette : mise en page ajustée */
+@media screen and (max-width: 1024px) {
+    .exceptions-row {
+        justify-content: space-around; /* Espacement autour des éléments */
+    }
+    .col {
+        flex: 1 1 calc(50% - 20px); /* Organise les éléments en 2 colonnes */
+    }
+}
+
+/* Mobile : mise en page réorganisée */
+@media screen and (max-width: 768px) {
+    .exceptions-row {
+        flex-direction: column; /* Passe les éléments en colonne */
+        align-items: center; /* Centre les éléments */
+    }
+    .col {
+        flex: 1 1 100%; /* Chaque élément prend 100% de la largeur */
+    }
+}
+
+/* Conteneur des produits incontournables */
+.incontournables_container {
+    gap: 20px; /* Espacement entre les éléments */
+    max-width: 1300px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrage horizontal */
+    padding-left: 20px; /* Marge interne à gauche */
+}
+
+/* Disposition des produits incontournables en ligne */
+.produit_inc-row {
+    display: flex; /* Utilisation de flexbox pour aligner les produits en ligne */
+    gap: 15px; /* Espacement entre les produits */
+}
+
+/* Style des cartes des produits incontournables */
+.produit_inc {
+    width: 320px; /* Largeur des cartes */
+    height: 460px; /* Hauteur des cartes */
+    border-radius: 12px; /* Coins arrondis */
+    background-color: white; /* Fond blanc */
+    padding: 20px; /* Espacement interne */
+    transition: /* Effets de transition */
+        transform 0.3s ease-in-out, /* Animation de déplacement */
+        box-shadow 0.3s ease-in-out; /* Animation d'ombre */
+}
+
+/* Effet au survol des produits incontournables */
+.produit_inc:hover {
+    transform: translateY(-10px); /* Déplacement vers le haut */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+/* Images des produits incontournables */
+.produit_inc img {
+    width: 100%; /* Prend toute la largeur disponible */
+}
+
+/* Titre des produits incontournables */
+.produit_inc h3 {
+    font-size: 20px; /* Taille du titre */
+    margin-left: 10px; /* Décalage à gauche */
+}
+
+/* Description des produits incontournables */
+.produit_inc p {
+    font-size: 18px; /* Taille de la description */
+    margin-left: 10px; /* Décalage à gauche */
+    margin-top: 50px; /* Marge en haut pour l'espacement */
+}
+
+/* Style global du pied de page */
+.footer {
+    background-color: #fff; /* Fond blanc */
+    color: #333; /* Texte sombre */
+    padding: 40px 0; /* Espacement autour du pied de page */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    width: 100%; /* Largeur totale */
+}
+
+/* Conteneur du pied de page */
+.container {
+    width: 90%; /* Largeur de 90% */
+    max-width: 1200px; /* Largeur maximale */
+    margin: auto; /* Centrage horizontal */
+}
+
+/* Section supérieure du pied de page */
+.footer-top {
+    text-align: center; /* Centre le texte */
+    margin-bottom: 20px; /* Marge inférieure */
+}
+
+/* Contenu du pied de page avec plusieurs sections */
+.footer-content {
+    display: flex; /* Utilisation de flexbox */
+    justify-content: space-between; /* Espacement entre les sections */
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+}
+
+/* Sections du pied de page */
+.footer-section {
+    flex: 1; /* Chaque section prend une part égale */
+    min-width: 200px; /* Largeur minimale */
+    margin-bottom: 20px; /* Marge inférieure */
+}
+
+/* Titre des sections du pied de page */
+.footer-section h3 {
+    font-size: 18px; /* Taille du titre */
+    margin-bottom: 10px; /* Marge inférieure */
+    color: #000; /* Texte noir */
+}
+
+/* Liste des liens dans chaque section */
+.footer-section ul {
+    list-style: none; /* Enlève les puces */
+    padding: 0; /* Enlève les marges internes */
+}
+
+/* Liens dans chaque section */
+.footer-section ul li {
+    margin-bottom: 8px; /* Marge inférieure */
+}
+
+.footer-section ul li a {
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: #555; /* Couleur grise */
+    transition: color 0.3s; /* Effet de transition au survol */
+}
+
+/* Effet au survol des liens */
+.footer-section ul li a:hover {
+    color: #000; /* Change la couleur en noir au survol */
+}
+
+/* Formulaire de la newsletter */
+.newsletter form {
+    display: flex; /* Utilise flexbox pour organiser les éléments */
+    flex-direction: column; /* Aligne les éléments en colonne */
+}
+
+/* Champ de saisie du formulaire */
+.newsletter input {
+    padding: 8px; /* Espace interne */
+    margin-bottom: 10px; /* Marge inférieure */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 4px; /* Coins arrondis */
+}
+
+/* Bouton du formulaire de newsletter */
+.newsletter button {
+    padding: 8px; /* Espace interne */
+    border: none; /* Enlève la bordure */
+    background-color: #000; /* Fond noir */
+    color: white; /* Texte blanc */
+    cursor: pointer; /* Curseur pointeur */
+    border-radius: 4px; /* Coins arrondis */
+    transition: 0.3s; /* Effet de transition */
+}
+
+/* Effet au survol du bouton */
+.newsletter button:hover {
+    background-color: #555; /* Change le fond au survol */
+}
+
+/* Section inférieure du pied de page */
+.footer-bottom {
+    text-align: center; /* Centre le texte */
+    border-top: 1px solid #ddd; /* Bordure supérieure */
+    padding-top: 10px; /* Espace au-dessus de la bordure */
+    margin-top: 20px; /* Marge supérieure */
+}
+
+/* Icônes sociales */
+.socials {
+    margin-top: 10px; /* Marge au-dessus */
+}
+
+/* Liens des icônes sociales */
+.socials a {
+    margin: 0 5px; /* Espacement entre les icônes */
+    color: #555; /* Couleur grise */
+    font-size: 20px; /* Taille des icônes */
+    transition: color 0.3s; /* Effet de transition */
+}
+
+/* Effet au survol des icônes sociales */
+.socials a:hover {
+    color: #000; /* Change la couleur au survol */
+}
+
+/* Responsive : mise en page ajustée pour les petits écrans */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Aligne les sections en colonne */
+        text-align: center; /* Centre le texte */
+    }
+}
+
+
