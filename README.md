@@ -1,4 +1,4 @@
-# GonzBoutik V9
+# GonzBoutik 
 
 Application e-commerce PHP pour la vente de smartphones, développée avec une architecture MVC (Modèle-Vue-Contrôleur).
 
@@ -222,6 +222,7 @@ Développé par Lucas Gonzalez
 Pour toute question ou problème, veuillez ouvrir une issue sur le dépôt du projet.
 
 ---
+
 
 
 
