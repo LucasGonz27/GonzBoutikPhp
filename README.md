@@ -208,15 +208,6 @@ Les variables globales sont définies dans `configs/variables_globales.class.php
 - Les mots de passe sont stockés en clair (à améliorer en production avec un hachage)
 - Le panier utilise les sessions PHP
 
-## 🔒 Sécurité
-
-⚠️ **Avertissements pour la production** :
-- Hacher les mots de passe (utiliser `password_hash()` et `password_verify()`)
-- Utiliser HTTPS
-- Valider et échapper toutes les entrées utilisateur
-- Implémenter une protection CSRF
-- Limiter les tentatives de connexion
-- Utiliser des requêtes préparées (déjà en place)
 
 ## 📄 Licence
 
@@ -232,6 +223,5 @@ Pour toute question ou problème, veuillez ouvrir une issue sur le dépôt du pr
 
 ---
 
-**Version** : 9.0  
-**Dernière mise à jour** : 2025
+
 
